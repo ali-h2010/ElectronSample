@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+   <head>
+      <meta charset = "UTF-8">
+      <title>Menus</title>
+   </head>
+   
+   <body>
+      <button type = "button" id = "notify" name = "button">
+         Click here to trigger a notification!</button>
+      <script type = "text/javascript">
+         const notifier = require('node-notifier')
+         const path = require('path');
+         
+         document.getElementById('notify').onclick = (event) => {
+            notifier.notify ({
+               title: 'My awesome title',
+               message: 'Hello from electron, Mr. User!',
+               icon: path.join('','/home/ayushgp/Desktop/images.png'),  // Absolute path (doesn't work on balloons)
+               sound: true,  // Only Notification Center or Windows Toasters
+               wait: true    // Wait with callback, until user action is taken against notification
+            
+            }, function (err, response) {
+               // Response is response from notification
+            });
+
+            notifier.on('click', function (notifierObject, options) {
+               console.log("You clicked on the notification")
+            });
+
+            notifier.on('timeout', function (notifierObject, options) {
+               console.log("Notification timed out!")
+            });
+         }
+      </script>
+   </body>
 </html>
