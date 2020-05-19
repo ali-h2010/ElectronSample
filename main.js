@@ -1,4 +1,7 @@
-const { app, BrowserWindow } = require('electron')
+const {app, BrowserWindow} = require('electron')
+const url = require('url')
+const path = require('path')
+
 
 function createWindow () {
   // Create the browser window.
@@ -11,7 +14,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  win.loadFile('Views/index.html')
   
 
   // Open the DevTools.

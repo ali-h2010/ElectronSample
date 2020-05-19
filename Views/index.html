@@ -2,12 +2,24 @@
 <html>
    <head>
       <meta charset = "UTF-8">
-      <title>Menus</title>
+      <title>Hello World!</title>
+      <link rel = "stylesheet" 
+         href = "./bower_components/bootstrap/dist/css/bootstrap.min.css" />
    </head>
    
    <body>
-      <button type = "button" id = "notify" name = "button">
-         Click here to trigger a notification!</button>
+      <div class = "container">
+         <h1>This page is using Bootstrap and jQuery!</h1>
+         <h3 id = "click-counter"></h3>
+         <button class = "btn btn-success" id = "countbtn">Click here</button>
+         <script src = "./view.js" ></script>
+      </div>
+      <br/>
+      <div class = "container">
+         <button class = "btn btn-success" type = "button" id = "notify" name = "button">
+            Click here to trigger a notification!</button>
+      </div>
+
       <script type = "text/javascript">
          const notifier = require('node-notifier')
          const path = require('path');
