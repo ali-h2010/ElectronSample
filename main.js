@@ -2,6 +2,11 @@ const {app, BrowserWindow} = require('electron')
 const url = require('url')
 const path = require('path')
 
+// Enable live reload for Electron too
+require('electron-reload')(__dirname, {
+  // Note that the path to electron may vary according to the main file
+  electron: require(`${__dirname}/node_modules/electron`)
+});
 
 function createWindow () {
   // Create the browser window.
