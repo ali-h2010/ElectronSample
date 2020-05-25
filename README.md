@@ -14,3 +14,4 @@ $ npm install --save jquery
 4- Added electron-reload
 https://ourcodeworld.com/articles/read/524/how-to-use-live-reload-in-your-electron-project
 
+5- added tray with multiple item types such as Radio buttons, checkboxes, nested list, separator, and normal titles
